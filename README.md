@@ -79,8 +79,6 @@ Previewing leaves events in the queue and does not add movement a second time
 to the game's accumulated internal coordinates. Buttons and wheel events remain
 available to the normal handler. The game timer code is unchanged.
 
-The archive includes the added handler's source (`preview_cursor.s`), exact patch
-offsets and SHA-256 hashes (`changes.json`), and emulator verification results.
 The patched executable passed 17 checks of the new handler and 14 checks of the
 previous buffer fix. Full-game behavior was then tested by the player on SteamOS.
 
