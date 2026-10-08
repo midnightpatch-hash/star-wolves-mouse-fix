@@ -12,10 +12,7 @@ It fixes discarded mouse movement and updates the in-game cursor before each fra
 
 ### [⬇ Download the latest release](https://github.com/midnightpatch-hash/star-wolves-mouse-fix/releases/latest)
 
-Under **Assets**, download `StarWolves_MouseFix_V2.zip` and extract it.
-The archive contains the patched `StarWolves.exe`, installation instructions,
-patch details, and the source of the added cursor handler.
-Only the EXE is needed to install the fix.
+Under **Assets**, download `StarWolves_MouseFix.zip` and extract it. The archive contains the patched `StarWolves.exe`. Follow the installation instructions below.
 
 ## What does it fix?
 
