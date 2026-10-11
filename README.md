@@ -82,3 +82,9 @@ Steam's **Verify integrity of game files** option also restores the original exe
 ## Previous releases
 
 [v1.0.0](https://github.com/midnightpatch-hash/star-wolves-mouse-fix/releases/tag/v1.0.0) contains the original mouse cursor fix without the additional v1.1.0 features.
+
+## Support
+
+This patch is free. If it made your time with Star Wolves more enjoyable, you can buy me a coffee. Thank you for your support!
+
+[☕ Support on Ko-fi](https://ko-fi.com/midnightpatch)
