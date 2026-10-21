@@ -1,0 +1,264 @@
+{
+  "format": 1,
+  "release": "v1.1.0",
+  "size": 3661824,
+  "original_sha256": "5942489ba04d2ab6cce996b21f5e1ea806e439f8d36ec10e7d8b7c8749a44804",
+  "patched_sha256": "4b2ceb680fcc6fdf58f5e4bdfec16f4f11eda00511d2c254e7ddef624d5d3d33",
+  "preferred_image_base": "0x400000",
+  "assembly_fragments": [
+    {
+      "id": "cursor_preview",
+      "source": "src/cursor_preview.S",
+      "virtual_address": "0x695070",
+      "entry": "render_wrapper"
+    },
+    {
+      "id": "sensitivity",
+      "source": "src/sensitivity.S",
+      "virtual_address": "0x695230",
+      "entry": "increase"
+    },
+    {
+      "id": "resolution_filter",
+      "source": "src/resolution_filter.S",
+      "virtual_address": "0x504755",
+      "entry": "resolution_filter"
+    },
+    {
+      "id": "startup_background",
+      "source": "src/startup_background.S",
+      "virtual_address": "0x6954d0",
+      "entry": "startup_background"
+    }
+  ],
+  "changes": [
+    {
+      "id": "text_virtual_size",
+      "offset": "0x230",
+      "before": "62402900",
+      "after": "db442900",
+      "purpose": "Increase the PE .text VirtualSize from 0x294062 to 0x2944db to cover the added code."
+    },
+    {
+      "id": "mouse_queue_01",
+      "offset": "0x23181",
+      "before": "40000000",
+      "after": "80000000",
+      "purpose": "Mouse DirectInput buffer: 64 to 128 records"
+    },
+    {
+      "id": "mouse_queue_04",
+      "offset": "0x23912",
+      "before": "64060000",
+      "after": "640b0000",
+      "purpose": "Expand local frame for 128 records"
+    },
+    {
+      "id": "mouse_queue_05",
+      "offset": "0x2391b",
+      "before": "70060000",
+      "after": "700b0000",
+      "purpose": "Keep caller argument address after frame expansion"
+    },
+    {
+      "id": "mouse_queue_06",
+      "offset": "0x23934",
+      "before": "64060000",
+      "after": "640b0000",
+      "purpose": "Expand local frame for 128 records"
+    },
+    {
+      "id": "mouse_queue_07",
+      "offset": "0x23976",
+      "before": "64060000",
+      "after": "640b0000",
+      "purpose": "Expand local frame for 128 records"
+    },
+    {
+      "id": "mouse_queue_02",
+      "offset": "0x239a2",
+      "before": "40000000",
+      "after": "80000000",
+      "purpose": "Mouse read request: 64 to 128 records"
+    },
+    {
+      "id": "mouse_queue_03",
+      "offset": "0x239b4",
+      "before": "74",
+      "after": "79",
+      "purpose": "Accept nonnegative HRESULT, including DI_BUFFEROVERFLOW"
+    },
+    {
+      "id": "mouse_queue_08",
+      "offset": "0x239e2",
+      "before": "64060000",
+      "after": "640b0000",
+      "purpose": "Expand local frame for 128 records"
+    },
+    {
+      "id": "mouse_queue_09",
+      "offset": "0x23a13",
+      "before": "7c060000",
+      "after": "7c0b0000",
+      "purpose": "Keep caller argument address after frame expansion"
+    },
+    {
+      "id": "mouse_queue_10",
+      "offset": "0x23fa9",
+      "before": "64060000",
+      "after": "640b0000",
+      "purpose": "Expand local frame for 128 records"
+    },
+    {
+      "id": "mouse_queue_11",
+      "offset": "0x2410c",
+      "before": "64060000",
+      "after": "640b0000",
+      "purpose": "Expand local frame for 128 records"
+    },
+    {
+      "id": "mouse_queue_12",
+      "offset": "0x2416a",
+      "before": "64060000",
+      "after": "640b0000",
+      "purpose": "Expand local frame for 128 records"
+    },
+    {
+      "id": "mouse_queue_13",
+      "offset": "0x24221",
+      "before": "64060000",
+      "after": "640b0000",
+      "purpose": "Expand local frame for 128 records"
+    },
+    {
+      "id": "mouse_queue_14",
+      "offset": "0x24235",
+      "before": "64060000",
+      "after": "640b0000",
+      "purpose": "Expand local frame for 128 records"
+    },
+    {
+      "id": "sensitivity_fix_840f0",
+      "offset": "0x840f0",
+      "before": "83ec105355",
+      "after": "e970122100",
+      "purpose": "Route the sensitivity bar to the 20-segment renderer; retain original rendering for other bars."
+    },
+    {
+      "id": "cursor_hook",
+      "offset": "0x8e855",
+      "before": "e8167af7ff",
+      "after": "e816682000",
+      "purpose": "Redirect render-update call to the register/flags-preserving cursor preview wrapper."
+    },
+    {
+      "id": "startup_hook",
+      "offset": "0x90ff3",
+      "before": "5389442428",
+      "after": "e9d8442000",
+      "purpose": "Route the main-window background-brush setup to the black-brush fragment."
+    },
+    {
+      "id": "sensitivity_fix_101b90",
+      "offset": "0x101b90",
+      "before": "51a1fc987400",
+      "after": "e99b36190090",
+      "purpose": "Redirect sensitivity increase handler."
+    },
+    {
+      "id": "sensitivity_fix_101c70",
+      "offset": "0x101c70",
+      "before": "51a1fc987400",
+      "after": "e9c335190090",
+      "purpose": "Redirect sensitivity decrease handler."
+    },
+    {
+      "id": "sensitivity_fix_10321d",
+      "offset": "0x10321d",
+      "before": "00004040",
+      "after": "0000803f",
+      "purpose": "Change reset/default sensitivity constant from 3.0 to 1.0."
+    },
+    {
+      "id": "sensitivity_fix_1034eb",
+      "offset": "0x1034eb",
+      "before": "e804cd1300",
+      "after": "e8e01d1900",
+      "purpose": "Normalize saved sensitivity and obtain the 1..20 display index on menu open."
+    },
+    {
+      "id": "sensitivity_fix_103505",
+      "offset": "0x103505",
+      "before": "898878010000",
+      "after": "e8361e190090",
+      "purpose": "Configure the sensitivity bar on menu open."
+    },
+    {
+      "id": "sensitivity_fix_1045e8",
+      "offset": "0x1045e8",
+      "before": "e807bc1300",
+      "after": "e8080d1900",
+      "purpose": "Convert reset sensitivity into a display index."
+    },
+    {
+      "id": "sensitivity_fix_1045fe",
+      "offset": "0x1045fe",
+      "before": "89b878010000",
+      "after": "e8330d190090",
+      "purpose": "Configure the sensitivity bar on reset."
+    },
+    {
+      "id": "resolution_filter",
+      "offset": "0x104755",
+      "before": "813840060000751885ed7c093bda7d058d0429eb0233c0817804b0040000746685ed7c093bda7d058d0429eb0233c0813800040000751885ed7c093bda7d058d0429eb0233c081780400030000743785ed7c093bda7d058d0429eb0233c08138000500000f85c501000085ed7c093bda7d058d0429eb0233c0817804000400000f85a9010000",
+      "after": "813800040000750981780400030000747581380005000075098178040004000074648138400600007509817804b004000074538138000500007509817804d0020000744281388007000075098178043804000074318138000a00007509817804a005000074208138000f0000750981780470080000740fe9b301000090909090e99c01000090",
+      "purpose": "Keep seven supported 32-bit resolutions.",
+      "source": "src/resolution_filter.S"
+    },
+    {
+      "id": "resolution_depth_skip",
+      "offset": "0x1047fc",
+      "before": "752d",
+      "after": "75d7",
+      "purpose": "Route rejected pixel depths through the original mode-advance path; avoids the earlier settings crash."
+    },
+    {
+      "id": "cursor_preview",
+      "offset": "0x295070",
+      "before": "00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+      "after": "9c60e807000000619de9f211d7ff5589e581ec200a0000535657e8000000005b81eb8f50290083bb083c3400000f845b0100008b83fc98340085c00f844d0100008b701085f60f84420100008b8e48080000f7c1100000000f853001000083e10383f9030f85240100008b781485ff0f84190100008b3f85ff0f840f010000833f020f85060100008b407885c00f84fb0000008b407c85c00f84f000000083b894050000000f84e30000008b8888050000894df08b888c050000894dec8b83683e340085c00f84c3000000c745fc80000000c745f800000000c745f4000000006a018d55fc528d95e0f5ffff526a148b0850ff512885c00f88910000008b4dfc81f9800000000f87820000008d95e0f5ffff85c97424833a00750bdb4204d845f8d95df8eb0e833a047509db4204d845f4d95df483c2144975dcd945f8d84e14d8864c080000d95df8d945f4d84e14d88650080000d95df48d55f88d4df0e8320000008d55f48d4dece8270000008b45f88986240800008b45f48986280800008d86240800005089f9e802c6d8ff5f5e5b89ec5dc3d9eed81adfe0f6c4417506c70200000000db01d812dfe0f6c4017403d91ac3ddd8c3",
+      "purpose": "Preview buffered relative movement with DIGDD_PEEK without consuming events.",
+      "source": "src/cursor_preview.S"
+    },
+    {
+      "id": "sensitivity",
+      "offset": "0x295230",
+      "before": "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+      "after": "51b901000000eb0651b9ffffffff5356575589cd8b742418e8000000005b81eb4d526900d94664d88bb4546900d883b8546900e88caffaffe84e00000001e8e84700000089c750db0424d88bbc546900d95e6483c4048b83fc98740085c0740d8b501085d274068b46648942146a018d830c9a6a00508b4e1ce8c2fadcff89f9e8910000005d5f5e5b59c383f8017d05b80100000083f8147e05b814000000c353e8000000005b81ebd6526900d88bb4546900d883b8546900e806affaffe8c8ffffff5bc35357e8d4ffffff89c7e8000000005b81eb0353690050db0424d88bbc546900d95e6483c4048b83fc98740085c0740d8b501085d274068b4e64894a1489f85f5bc35189f9e80800000059c3e801000000c385c0741a898878010000c7807c01000000000000c7808001000014000000c383b98001000014751483b97c01000000750b83b930010000167c02eb0a83ec105355e969eddeff5355565783ec2889ce31c0890424894424048d0424508b06ff50548b867801000085c07d0231c083f8147e05b814000000898678010000894424248b863001000083e8028944241c8b8e88010000e83162ddff8b108b400489542410894424148d0424508b8e84010000e88563ddff8b042483c0028944241831edbb010000003b5c24247f4c89d80faf44241c99b914000000f7f989c729e8894424088b4424148944240c8d442408508b8e88010000e85f63ddff8b44241801e88904248d0424508b8e88010000e82763ddff89fd43ebae8d442410508b8e88010000e83263ddff8b44241c29e8894424088b86340100008944240c8d442408508b8e8c010000e80e63ddff8b44241801e88904248d0424508b8e8c010000e8d662ddff83c4285f5e5d5bc36690000000410000003f0000003e",
+      "purpose": "Implement 20-step sensitivity, normalization, live update and the 20-segment indicator.",
+      "source": "src/sensitivity.S"
+    },
+    {
+      "id": "startup_background",
+      "offset": "0x2954d0",
+      "before": "0000000000000000000000",
+      "after": "894424246a04e91dbbdfff",
+      "purpose": "Retain the original stack store and use BLACK_BRUSH (4) instead of WHITE_BRUSH (0).",
+      "source": "src/startup_background.S"
+    },
+    {
+      "id": "sensitivity_fix_34f2b8",
+      "offset": "0x34f2b8",
+      "before": "923b",
+      "after": "0000",
+      "purpose": "Disable an obsolete HIGHLOW relocation for an absolute operand replaced by a relative hook."
+    },
+    {
+      "id": "sensitivity_fix_34f2d8",
+      "offset": "0x34f2d8",
+      "before": "723c",
+      "after": "0000",
+      "purpose": "Disable the second obsolete HIGHLOW relocation for the replaced absolute operand."
+    }
+  ]
+}
